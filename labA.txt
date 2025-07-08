@@ -13,14 +13,20 @@ groupadd Sales
 groupadd IS
 cat /etc/group
 useradd -m -s /bin/bash -g Engineering Eng-admin
+useradd -m -s /bin/bash -g Sales Sales-admin
+useradd -m -s /bin/bash -g IS IS-admin
+-------------------------------
+***to add passwowrd***
+paswwd Eng-admin
+passwd Sales-admin
+passwd IS-admin
+--------------------------------
 useradd -m -s /bin/bash -g Engineering Eng-user-1
 useradd -m -s /bin/bash -g Engineering Eng-user-2
 
-useradd -m -s /bin/bash -g Sales Sales-admin
 useradd -m -s /bin/bash -g Sales Sales-user-1
 useradd -m -s /bin/bash -g Sales Sales-user-2
 
-useradd -m -s /bin/bash -g IS IS-admin
 useradd -m -s /bin/bash -g IS IS-user-1
 useradd -m -s /bin/bash -g IS IS-user-2
 ls /home/
