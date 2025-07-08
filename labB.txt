@@ -1,0 +1,44 @@
+nano user_management.sh
+
+chmod +x ./user_management.sh
+./user_management.sh
+---------------------------------------
+
+#!/bin/bash                                                                     
+                                                                                
+set_username(){                                                                 
+   printf "Enter a username:\n"                                                 
+   read USERNAME                                                                
+                                                                                
+   if getent passwd "$USERNAME"; then                                           
+     printf "Username \'$USERNAME\' already exists. Choose a different username.\n"
+     set_username                                                               
+   fi                                                                           
+}                                                                               
+                                                                                
+set_group(){                                                                    
+   printf "Enter a group:\n"                                                    
+   read GROUP                                                                   
+                                                                                
+   if getent group "$GROUP"; then                                               
+     printf "Group \'$GROUP\' already exists. Choose a different group.\n"      
+     set_group
+   fi
+}
+
+set_username                                                                    
+set_group                                                                       
+                                                                                
+sudo groupadd $GROUP; printf "$GROUP group created.\n"                          
+sudo useradd -m -s /bin/bash -g $GROUP $USERNAME; printf "$USERNAME user created.\n"
+sudo passwd $USERNAME                                                           
+sudo mkdir /$USERNAME                                                           
+sudo chown $USERNAME:$GROUP /$USERNAME                                          
+sudo chmod 1770 /$USERNAME                                                      
+                                                                                
+echo "Successfully created user and group!!! ;)"
+
+---------------------------------
+ls /
+ls -l /
+ls /home/
