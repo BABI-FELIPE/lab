@@ -56,3 +56,17 @@ chmod 740 /Engineering/file.txt
 chmod 740 /Sales/file.txt
 chmod 740 /IS/file.txt
 
+-----------------------
+*to add password**
+passwd Eng-admin **USERNAME**
+
+------------------------
+su - Eng-admin
+cd /Engineering
+ls
+cat file.txt  # ✅ Should show the file contents
+touch newfile.txt  # ✅ Should work (create a new file)
+
+**View permissionns**
+ls -ld /Engineering /Sales /IS
+ls -l /Engineering /Sales /IS
