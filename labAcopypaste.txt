@@ -7,7 +7,6 @@ cd /
 mkdir Engineering
 mkdir Sales
 mkdir IS
-ls
 groupadd Engineering
 groupadd Sales
 groupadd IS
