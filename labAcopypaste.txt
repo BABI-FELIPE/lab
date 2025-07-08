@@ -8,7 +8,6 @@ mkdir Engineering
 mkdir Sales
 mkdir IS
 ls
-cat /etc/group
 groupadd Engineering
 groupadd Sales
 groupadd IS
