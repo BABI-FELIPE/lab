@@ -1,0 +1,59 @@
+;go to su root first
+su root
+netlab123
+
+---------------------------------
+cd /
+mkdir Engineering
+mkdir Sales
+mkdir IS
+ls
+cat /etc/group
+groupadd Engineering
+groupadd Sales
+groupadd IS
+
+useradd -m -s /bin/bash -g Engineering Eng-admin
+useradd -m -s /bin/bash -g Sales Sales-admin
+useradd -m -s /bin/bash -g IS IS-admin
+
+useradd -m -s /bin/bash -g Engineering Eng-user-1
+useradd -m -s /bin/bash -g Engineering Eng-user-2
+
+useradd -m -s /bin/bash -g Sales Sales-user-1
+useradd -m -s /bin/bash -g Sales Sales-user-2
+
+useradd -m -s /bin/bash -g IS IS-user-1
+useradd -m -s /bin/bash -g IS IS-user-2
+
+chown Eng-admin:Engineering /Engineering
+chown Sales-admin:Sales /Sales
+chown IS-admin:IS /IS
+
+chmod 1770 /Engineering
+chmod 1770 /Sales
+chmod 1770 /IS
+
+echo "This file contains confidential information for the department" > Engineering/file.txt
+echo "This file contains confidential information for the department" > Sales/file.txt
+echo "This file contains confidential information for the department" > IS/file.txt
+
+chown Eng-admin:Engineering /Engineering/file.txt
+chown Sales-admin:Sales /Sales/file.txt
+chown IS-admin:IS /IS/file.txt
+
+chmod 740 /Engineering/file.txt
+chmod 740 /Sales/file.txt
+chmod 740 /IS/file.txt
+
+-------------------------------------
+su Eng-admin
+cd /Engineering
+ls
+cat file.txt  # ✅ Should show the file contents
+touch newfile.txt  # ✅ Should work (create a new file)
+
+**View permissionns**
+ls -ld /Engineering /Sales /IS
+ls -l /Engineering /Sales /IS
+
