@@ -1,4 +1,5 @@
-nano user_management.sh
+nano user_management.sh    ; ctrl+o, enter, ctrl+x
+vi user_management.sh      ; :wq!
 
 chmod +x ./user_management.sh
 ./user_management.sh
@@ -36,7 +37,7 @@ sudo mkdir /$USERNAME
 sudo chown $USERNAME:$GROUP /$USERNAME                                          
 sudo chmod 1770 /$USERNAME                                                      
                                                                                 
-echo "Successfully created user and group!!! ;)"
+echo "Successfully created user and group!!!"
 
 ---------------------------------
 ls /
